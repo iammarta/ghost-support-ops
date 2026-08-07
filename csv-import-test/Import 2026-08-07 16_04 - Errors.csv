@@ -1,0 +1,3 @@
+"email","name","subscribed","complimentary_plan","created_at","labels","error"
+"not-an-email","Bad Email Row","true","false","2024-01-01T00:00:00.000Z","","Invalid Email"
+"another@example.com","Third Member","true","false","not-a-valid-date","","Date format for `created_at` is invalid."

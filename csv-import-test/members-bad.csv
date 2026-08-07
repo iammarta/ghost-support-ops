@@ -1,0 +1,4 @@
+email,name,note,subscribed_to_emails,complimentary_plan,stripe_customer_id,created_at,labels
+good@example.com,Good Member,,true,,,2024-01-01T00:00:00.000Z,
+not-an-email,Bad Email Row,,true,,,2024-01-01T00:00:00.000Z,
+another@example.com,Third Member,,true,,,not-a-valid-date,

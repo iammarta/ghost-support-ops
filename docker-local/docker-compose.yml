@@ -1,0 +1,37 @@
+services:
+  ghost:
+    image: ghost:6.56.0-alpine
+    restart: always
+    ports:
+      - "2368:2368"
+    environment:
+      url: http://localhost:2368
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: root
+      database__connection__password: ghostpass
+      database__connection__database: ghost
+
+      # Newsletter delivery via Mailgun
+      mail__transport: SMTP
+      mail__options__host: smtp.mailgun.org
+      mail__options__port: 587
+      mail__options__secure: "false"
+      mail__from: '"Test Ghost" <noreply@mg.ghosttest.org>'
+    depends_on:
+      - db
+    volumes:
+      - ghost-content:/var/lib/ghost/content
+
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ghostpass
+      MYSQL_DATABASE: ghost
+    volumes:
+      - db-data:/var/lib/mysql
+
+volumes:
+  ghost-content:
+  db-data:
